@@ -250,7 +250,7 @@ This cheat sheet will guide through the basics of the Pandas library from the da
 
 **[🔼Back to Top](#table-of-contents)**
 
-## Text Data Operation
+## Text Operation
 
 > The Below  functions can be applied to Text Data:
 
