@@ -1,6 +1,4 @@
 
-# Pandas-Masterclass
-
 ---
 ## Title: Pandas CheatSheet
 ## Description: The most commonly used pandas commands are given here.
