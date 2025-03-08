@@ -2,9 +2,9 @@
 # Pandas-Masterclass
 
 ---
-Title: Pandas CheatSheet
-Description: The most commonly used pandas commands are given here.
-Created: 2025-3-4
+## Title: Pandas CheatSheet
+## Description: The most commonly used pandas commands are given here.
+## Created: 2025-1-3
 ---
 
 ## Table of Contents
