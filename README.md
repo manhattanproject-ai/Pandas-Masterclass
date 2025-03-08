@@ -258,8 +258,8 @@ This cheat sheet will guide through the basics of the Pandas library from the da
 |-------------|----------|
 |`df.astype('string')`| It adds the specified scalar value to every element within the DataFrame df.|
 |`df['column_name'].str.len()`| It obtains the number of characters in the string values within columns.|
-|`df['column_name'].str.lower()`| It adds the specified scalar value to every element within the DataFrame df.|
-|`df['column_name'].str.upper()`| It adds the specified scalar value to every element within the DataFrame df.|
+|`df['column_name'].str.lower()`| It converts all strings in the column_name of the DataFrame df to lowercase.|
+|`df['column_name'].str.upper()`| It converts all strings in the column_name of the DataFrame df to uppercase.|
 |`df['column_name'].str.title()`| It returns a title-cased version of the string where every word starts with an uppercase character.|
 |`df['column_name'].str.capitalize()`| It returns only uppercases the first character of the entire string, regardless of the number of words present.|
 |`df['column_name'].str.swapcase()`| It is used to convert every character in a string to a case that is opposite of its current one.|
