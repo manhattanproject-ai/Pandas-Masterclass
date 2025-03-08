@@ -235,9 +235,11 @@ This cheat sheet will guide through the basics of the Pandas library from the da
 |`df.ge(s)` | It compares each element in DataFrame df with scalar value s, returning a boolean DataFrame showing elements greater than or equal to s.|
 |`df.gt(s)` | It compares each element in DataFrame df with scalar value s, returning a boolean DataFrame showing elements strictly greater than s.|
 |`df.nlargest(n=5, columns='column_name')` | It retrieves the five rows with the highest values in the specified column_name from the DataFrame df.|
+|`df.nsmallest(n=5, columns='column_name')` | It retrieves the five rows with the lowest values in the specified column_name from the DataFrame df.|
 |`df['column_name'].rank()` | It assigns a rank to each value in the specified column_name within the DataFrame df, based on their ascending order.|
 |`pd.cut(df['column_name'], bins=4)` | It divides the values in the specified column_name into 4 equal-width bins and assigns each value to its corresponding bin.|
 |`pd.cut(df['column_name'], bins=4, labels=['Low', 'Moderate', 'High', 'Extreme'])` | It categorizes the numerical data in specified column_name into four bins with the specified labels..|
+|`pd.qcut(df['column_name'], q=4)` | It divides the values in the specified column_name into 4 quantiles, ensuring each bin has roughly the same number of data points.|
 |`df['column_name'].clip(upper=20000)` | It caps the maximum value of elements in the column column_name within the DataFrame df to 20,000.|
 |`df['column_name'].cumsum()` | It calculates the cumulative sum of the values in the column column_name within the DataFrame df.|
 |`df['column_name'].cumprod()` | It calculates the cumulative product of the values in the column column_name within the DataFrame df.|
