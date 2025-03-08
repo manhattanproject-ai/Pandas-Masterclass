@@ -21,7 +21,8 @@
   - [Filter, Sort, and Groupby](#filter-sort-and-groupby)
   - [Join/Combine](#joincombine)
   - [Statistics](#statistics)
-  - [Numerical Operation](#Numerical-Operation)
+  - [Numerical Data Operation](#Numerical-Operation)
+  - [Text Data Operation](#Text-Operation)
   - [Data Visualization with dataframe](#data-visualization-with-dataframe)
     - [Terminology And Definitions](#terminology-and-definitions)
     - [Type of plots](#type-of-plots)
@@ -245,6 +246,57 @@ This cheat sheet will guide through the basics of the Pandas library from the da
 |`df['column_name'].cumprod()` | It calculates the cumulative product of the values in the column column_name within the DataFrame df.|
 |`df.groupby(['column_name'])['column_name'].cummax()` | It calculates the cumulative maximum value within each group defined by column_name in the DataFrame df.|
 |`df.groupby(['column_name'])['column_name'].cummin()` | It calculates the cumulative minimum value within each group defined by column_name in the DataFrame df.|
+
+
+**[🔼Back to Top](#table-of-contents)**
+
+## Text Data Operation
+
+> The Below  functions can be applied to Text Data:
+
+|Command | description|
+|-------------|----------|
+|`df.astype('string')`| It adds the specified scalar value to every element within the DataFrame df.|
+|`df['column_name'].str.len()`| It obtains the number of characters in the string values within columns.|
+|`df['column_name'].str.lower()`| It adds the specified scalar value to every element within the DataFrame df.|
+|`df['column_name'].str.upper()`| It adds the specified scalar value to every element within the DataFrame df.|
+|`df['column_name'].str.title()`| It returns a title-cased version of the string where every word starts with an uppercase character.|
+|`df['column_name'].str.capitalize()`| It returns only uppercases the first character of the entire string, regardless of the number of words present.|
+|`df['column_name'].str.swapcase()`| It is used to convert every character in a string to a case that is opposite of its current one.|
+|`df['column_name'].str.casefold()`| It is used to returns a case-folded copy of the string, which can be useful for caseless matching.|
+|`df['column_name'].str.isalnum()`| Checks whether all characters are alphanumeric in the column.|
+|`df['column_name'].str.isalpha()`| Checks whether all characters are alphabetic in the column.|
+|`df['column_name'].str.isdecimal()`| Checks whether all characters are decimal in the column.|
+|`df['column_name'].str.isdigit()`| Checks whether all characters are digits in the column.|
+|`df['column_name'].str.islower()`| Checks whether all characters are lowercase in the column.|
+|`df['column_name'].str.isnumeric()`| Checks whether all characters are numeric in the column.|
+|`df['column_name'].str.isspace()`| Checks whether all characters are whitespace in the column.|
+|`df['column_name'].str.istitle()`| Checks whether all characters are titlecase in the column.|
+|`df['column_name'].str.isupper()`| Checks whether all characters are uppercase in the column.|
+|`df['column_name'].str.slice()`| It is a way of selecting a subset of characters from a string column.|
+|`df['column_name'].str.slice_replace()`| It enables us to replace a positional slice of a string with another value.|
+|`df['column_name'].str.split()`| It splits a string column into multiple columns based on a separator..|
+|`df['column_name'].str.partition()`| It splits the string at the first occurrence of the separator.|
+|`df['column_name'].str.cat()`| It helps in concatenating strings.|
+|`df['column_name'].str.endswith()`| Checks  if each string value in the  column ends with the mentioned string.|
+|`df['column_name'].str.contains()`| Checks  if each string value in the  column  match , can occur at any position within the string.|
+|`df['column_name'].str.match()`| Checks  if each string value in the  column  match , must begin at the string's first character.|
+|`df['column_name'].str.fullmatch()`| Checks  if each string value in the  column  match , the entire string must match the pattern.|
+|`df['column_name'].str.find()`| It is used to search for a substring within each element of a DataFrame column and return the starting index of its first occurrence.|
+|`df['column_name'].str.findall()`| It extracts all occurrences of the substring pattern so that the substring repetition count can be derived from the output..|
+|`df['column_name'].str.extract()`| It is used to extract particular regex patterns that we want to extract from string values.|
+|`df['column_name'].str.extractall()`| It is used to extract all particular regex patterns that we want to extract from string values.|
+|`df['column_name'].str.replace()`| It is used to replacing each occurrence of a string or regex pattern.|
+|`df['column_name'].str.pad()`| It is used for adding extra characters to the beginning or end of a string to make it up to a certain length.|
+|`df['column_name'].str.rjust()`| Pads left side of strings with an arbitrary character. Equivalent to setting side='left' in pad().|
+|`df['column_name'].str.ljust()`| Pads right side of strings with an arbitrary character. Equivalent to setting side='right' in pad().|
+|`df['column_name'].str.center()`| Pads both sides of strings with an arbitrary character. Equivalent to setting side='both' in pad().|
+|`df['column_name'].str.zfill()`| Pads left side of strings by prepending a 0 character. Equivalent to setting side='left' and fillchar='0' in pad(). |
+|`df['column_name'].str.strip()`| It strips whitespaces (including newlines) or a set of specified characters from each string from the left and right sides.|
+|`df['column_name'].str.rstrip()`| It is used if we only want to remove characters from the trailing side.|
+|`df['column_name'].str.removeprefix()`| It is used if we’re dealing with string values that have a specific prefix.|
+|`df['column_name'].str.removesuffix()`| It is used if we’re dealing with string values that have a specific suffix.|
+|`df['column_name'].str.wrap()`| It is used to ensure that the text is wrapped across multiple lines to fit within the available width of the output display.|
 
 
 **[🔼Back to Top](#table-of-contents)**
