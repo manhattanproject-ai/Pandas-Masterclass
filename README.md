@@ -21,7 +21,7 @@
   - [Statistics](#statistics)
   - [Numerical Operation](#Numerical-Operation)
   - [Text Operation](#Text-Operation)
-  - [Time Series Data Operation](#Time-Series-DataOperations)
+  - [Timeseries Operation](#Timeseries-Operations)
   - [Data Visualization with dataframe](#data-visualization-with-dataframe)
     - [Terminology And Definitions](#terminology-and-definitions)
     - [Type of plots](#type-of-plots)
@@ -300,9 +300,9 @@ This cheat sheet will guide through the basics of the Pandas library from the da
 
 **[🔼Back to Top](#table-of-contents)**
 
-## Time Series Data Operations
+## Timeseries Operations
 
-> The Below  functions can be applied to Text Data:
+> The Below  functions can be applied to Timeseries Data:
 
 |Command | description|
 |-------------|----------|
