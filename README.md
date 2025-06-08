@@ -21,7 +21,7 @@
   - [Statistics](#statistics)
   - [Numerical Operation](#Numerical-Operation)
   - [Text Operation](#Text-Operation)
-  - [Text Series Data Operation](#Time-Series-DataOperations)
+  - [Time Series Data Operation](#Time-Series-DataOperations)
   - [Data Visualization with dataframe](#data-visualization-with-dataframe)
     - [Terminology And Definitions](#terminology-and-definitions)
     - [Type of plots](#type-of-plots)
