@@ -19,8 +19,9 @@
   - [Filter, Sort, and Groupby](#filter-sort-and-groupby)
   - [Join/Combine](#joincombine)
   - [Statistics](#statistics)
-  - [Numerical Data Operation](#Numerical-Operation)
-  - [Text Data Operation](#Text-Operation)
+  - [Numerical Operation](#Numerical-Operation)
+  - [Text Operation](#Text-Operation)
+  - [Text Data Operation](#Time-Series-DataOperations)
   - [Data Visualization with dataframe](#data-visualization-with-dataframe)
     - [Terminology And Definitions](#terminology-and-definitions)
     - [Type of plots](#type-of-plots)
@@ -299,6 +300,40 @@ This cheat sheet will guide through the basics of the Pandas library from the da
 
 **[🔼Back to Top](#table-of-contents)**
 
+## Time Series Data Operations
+
+> The Below  functions can be applied to Text Data:
+
+|Command | description|
+|-------------|----------|
+|`pd.to_datetime(arg)`| Converts a scalar, array-like, Series, or DataFrame to datetime objects.|
+|`pd.date_range(start=None, end=None, periods=None, freq='D')`| Generates a fixed-frequency DatetimeIndex.|
+|`df.index.dt.year`| Extracts the year from a DatetimeIndex.|
+|`df['date_col'].dt.month`| Extracts the month from a datetime Series.|
+|`df.index.dt.day`| Extracts the day of the month from a DatetimeIndex|
+|`df['time_col'].dt.hour`| Extracts the hour from a datetime Series.|
+|`df.resample(rule)`| Used for frequency conversion (downsampling or upsampling) of time series data.|
+|`df.resample(rule).mean()`| Aggregates resampled data by calculating the mean.|
+|`df.resample(rule).sum()`| Aggregates resampled data by calculating the sum.|
+|`df.resample(rule).first()`| Aggregates resampled data by taking the first value.|
+|`df.resample(rule).last()`| Aggregates resampled data by taking the last value.|
+|`df.resample(rule).ohlc()`| Aggregates resampled data to calculate Open, High, Low, Close (useful for financial data).|
+|`df.asfreq(freq)`| Converts TimeSeries to specified frequency. Values are filled with NaN for new time points.|
+|`df.shift(periods=1)`| Shifts the index by the desired number of periods.|
+|`df.shift(freq='D')`| Shifts the index by a specified time frequency, respecting calendar gaps.|
+|`df.pct_change(periods=1)`| Calculates the percentage change between the current and a prior element.|
+|`df.rolling(window).mean()`| Calculates the rolling (moving) mean over a specified window.|
+|`df.rolling(window).std()`| Calculates the rolling standard deviation over a specified window.|
+|`df.expanding().sum()`|  Calculates the expanding (cumulative) sum from the beginning of the series up to the current point.|
+|`df.expanding().mean()`| Calculates the expanding (cumulative) mean from the beginning of the series up to the current point.|
+|`df.tz_localize(tz)`| Localizes a naive (timezone-unaware) DatetimeIndex to a specific timezone.|
+|`df.tz_convert(tz)`| Converts an already timezone-aware DatetimeIndex to a different timezone.|
+|`df.ffill()`| Fills NaN values by propagating the last valid observation forward to next valid observation.|
+|`df.bfill()`| Fills NaN values by propagating the next valid observation backward to previous valid observation.|
+|`df.interpolate(method='time')`| Fills NaN values by estimating based on time intervals, assuming linear progression.|
+
+**[🔼Back to Top](#table-of-contents)**
+
 ## Data Visualization with dataframe
 
 ### Terminology And Definitions
@@ -345,7 +380,6 @@ This cheat sheet will guide through the basics of the Pandas library from the da
 ### Type of plots
 
 `Note it is a part of data Visualization`
-
 
 |king|type|
 |-----|-----|
