@@ -281,7 +281,14 @@ This cheat sheet will guide through the basics of the Pandas library from the da
 |`df.skew()`| Returns the skewness of each column, a measure of the asymmetry of the data distribution.|
 |`df.kurt()`| Returns the kurtosis of each column, a measure of the "tailedness" of the data distribution.|
 |`df.mode()`| Returns the mode(s) (most frequent value(s)) of each column.|
-|`df.sum()`| Returns the sum of each column.|
+|`df.abs()`| Returns the absolute numerical value of each element in the DataFrame.|
+|`df.mad()`| Returns the mean absolute deviation of each column.|
+|`df.prod()`| Returns the product of the values in each column.|
+|`df.cumsum()`| Returns the cumulative sum along the specified axis (e.g., running total).|
+|`df.cumprod()`| Returns the cumulative product along the specified axis (e.g., running product).|
+|`df.pct_change()`| Returns the percentage change between the current and a prior element.|
+|`df.cov()`| Returns the covariance between columns, indicating how two variables change together.|
+|`df.sem()`| Returns the standard error of the mean for each column.|
 
 **[🔼Back to Top](#table-of-contents)**
 
