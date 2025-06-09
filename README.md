@@ -323,6 +323,27 @@ This cheat sheet will guide through the basics of the Pandas library from the da
 |`df.groupby(['column_name'])['column_name'].cummax()` | It calculates the cumulative maximum value within each group defined by column_name in the DataFrame df.|
 |`df.groupby(['column_name'])['column_name'].cummin()` | It calculates the cumulative minimum value within each group defined by column_name in the DataFrame df.|
 
+**[🔼Back to Top](#table-of-contents)**
+
+## Categorical Operation
+
+> The Below  functions can be applied to Categorical Data:
+
+|Command | description|
+|-------------|----------|
+|`df['column_name'].astype('category'`| Converts the data in the specified column to a pandas Categorical dtype, which is memory-efficient and enables categorical-specific methods.|
+|`df['column_name'].value_counts()`| Counts the occurrences of each unique category in the specified column, returning a Series with categories as index and counts as values.|
+|`df['column_name'].unique()`| Returns an array of all unique categories/values present in the specified column.|
+|`df['column_name'].nunique()`| Returns the number of unique categories/values in the specified column.|
+|`df['column_name'].mode()`| Returns the most frequently occurring category (or categories if there's a tie) in the specified column.|
+|`df['categorical_column'].cat.categories`| Retrieves the list of all defined categories for a column that has already been converted to a Categorical dtype.|
+|`df['categorical_column'].cat.reorder_categories(new_order, ordered=True)`| Reorders the existing categories of a categorical column according to new_order, optionally setting it as ordered.|
+|`df['categorical_column'].cat.add_categories(new_cats)`| Adds new categories to the existing categories of a categorical column without changing the data.|
+|`df['categorical_column'].cat.remove_categories(rem_cats)`| Removes specified categories from the existing categories of a categorical column, converting corresponding data points to NaN.|
+|`df['categorical_column'].cat.remove_unused_categories()`| Removes any categories from a categorical column's metadata that are not actually present in the data.|
+|`df['column_name'].isin(['value1', 'value2'])`| Checks if each element in the specified column is present within the given list of values, returning a boolean Series.|
+|`pd.get_dummies(df['column_name'])`| Converts the specified categorical (or object) column into dummy/one-hot encoded variables (binary columns for each category).|
+
 
 **[🔼Back to Top](#table-of-contents)**
 
