@@ -157,21 +157,56 @@ This cheat sheet will guide through the basics of the Pandas library from the da
 
 |Command | description|
 |-------------|----------|
-|`df.columns` = ['a','b','c'] | It rename the columns.|
-|`pd.isnull()` | It checks for the null values and returns the Boolean array.|
-|`pd.notnull()` | It is opposite of pd.isnull().|
+|`df.columns = ['a','b','c']` | Renames all columns by assigning a new list of column names.|
+|`pd.isnull(obj)` | Checks for null (NaN, None, NaT) values in a DataFrame or Series, returning a Boolean array/DataFrame.|
+|`pd.notnull(obj)` | The inverse of pd.isnull(), checking for non-null values.|
 |`df.dropna()`|It drops all the rows that contain the null values.|
 |`df.dropna(axis= 1)`| It drops all the columns that contain null values.|
-|`df.dropna(axis=1,thresh=n)`| It drops all the rows that have less than n non null values.|
+|`df.dropna(how='all')`| Drops rows where all values are null. (Often axis=0 is implied).|
+|`df.dropna(axis=1, how='all')`| Drops columns where all values are null.|
+|`df.dropna(how='all')`| Drops rows where all values are null. (Often axis=0 is implied).|
+|`df.dropna(subset=['col1', 'col2'])`| Drops rows that have null values only in the specified subset of columns.|
+|`df.dropna(thresh=n)`| Drops rows where all values are null. (Often axis=0 is implied).|
+|`df.dropna(axis=1,thresh=n)`| Drops rows that have fewer than n non-null values.|
 |`df.fillna(x)`| It replaces all null values with x.|
 |`s.fillna(s.mean())`| It replaces all the null values with the mean(the mean can be replaced with almost any function from the statistics module).|
-|`s.astype(float)`| It converts the datatype of series to float.|
-|`s.replace(1, 'one')`| It replaces all the values equal to 1 with 'one'.|
-|`s.replace([1,3],[ 'one', 'three'])`|It replaces all 1 with 'one' and 3 with 'three'.|
-|`df.rename(columns=lambda x: x+1)`|It rename mass of the columns.|
-|`df.rename(columns={'old_name': 'new_ name'})`| It consist selective renaming.|
-|`df.set_index('column_one')`| Used for changing the index.|
-|`df.rename(index=lambda x: x+1)`| It rename mass of the index.|
+|`df.fillna({'col1': val1, 'col2': val2})`| Replaces null values with different specified values per column.|
+|`df.fillna(method='ffill')`| Replaces null values by propagating the last valid observation forward to next valid observation (forward fill).|
+|`df.fillna(method='bfill')`| Replaces null values by propagating the next valid observation backward to previous valid observation (backward fill).|
+|`df.fillna(value=df.mean())`| Replaces null values in each column with that column's mean.|
+|`s.astype(dtype)`| Converts the data type of a Series s to the specified dtype (e.g., 'float', 'int', 'str', datetime).|
+|`df['col'].astype(dtype)`| Converts the data type of a specific column in a DataFrame.|
+|`s.replace(old_value, new_value)`| Replaces all occurrences of old_value with new_value across the entire DataFrame.|
+|`s.replace([val1, val2], [new_val1, new_val2])`| Replaces multiple old values with corresponding new values in a Series.|
+|`df.replace(old_value, new_value)`| Replaces all occurrences of old_value with new_value across the entire DataFrame.|
+|`df.replace({'col_name': {old_val: new_val}})`| Replaces values specifically within a designated column of a DataFrame.|
+|`df.replace({'col1': {old_val1: new_val1}, 'col2': {old_val2: new_val2}})`|Replaces values differently across multiple specific columns.|
+|`df.rename(columns=lambda x: x + '_new')`|Renames columns using a function (e.g., appending _new to each name).|
+|`df.rename(columns={'old_name': 'new_name'})`| Renames specific columns using a dictionary mapping.|
+|`df.set_index('column_one')`| Sets a specified column as the new DataFrame index.|
+|`df.reset_index()`| Resets the index to the default integer index, optionally moving the current index to a column.|
+|`df.rename(index=lambda x: x + 1)`| Renames index labels using a function.|
+|`df.rename(index={old_label: new_label})`| Renames specific index labels using a dictionary mapping.|
+|`df.drop_duplicates()`| Removes duplicate rows based on all columns.|
+|`df.drop_duplicates(subset=['col1'])`| Removes duplicate rows based only on specified columns.|
+|`df.drop_duplicates(keep='last')`| Removes duplicates, keeping the last occurrence. (Default is first).|
+|`df.duplicated()`| Returns a Boolean Series indicating duplicate rows.|
+|`df.duplicated(subset=['col1'])`| Returns a Boolean Series indicating duplicate rows based on specified columns.|
+|`df.astype({'col1': 'int', 'col2': 'float'})`| Converts data types for multiple specific columns at once.|
+|`pd.to_numeric(s, errors='coerce')`| Converts Series s to numeric, converting unparseable values to NaN.|
+|`pd.to_datetime(s, errors='coerce')`| Converts Series s to datetime objects, converting unparseable values to NaT.|
+|`pd.to_timedelta(s, errors='coerce')`| Converts Series s to timedelta objects.|
+|`df.loc[df['col'].isin(['val1', 'val2'])]`| Filters rows where a column's value is in a given list.|
+|`df.loc[~df['col'].isin(['val1', 'val2'])]`| Filters rows where a column's value is NOT in a given list.|
+|`df.apply(function, axis=1)`| Applies a function along an axis of the DataFrame (e.g., row-wise operations).|
+|`df.select_dtypes(include='number')`| Selects columns based on their data type (e.g., only numeric columns).|
+|`df.drop(['col1', 'col2'], axis=1)`| Drops specified columns from the DataFrame.|
+|`df.drop(index=[0, 1])`| Drops rows by their index labels.|
+|`df.isnull().sum()`| Returns a Series with the count of null values per column.|
+|`df.isnull().sum(axis=1)`| Returns a Series with the count of null values per row.|
+|`df.interpolate()`| Fills NaN values using interpolation methods (e.g., linear, polynomial).|
+|`df.clip(lower=min_val, upper=max_val)`| Clips values in the DataFrame to be within a specified range.|
+
 
 **[🔼Back to Top](#table-of-contents)**
 
