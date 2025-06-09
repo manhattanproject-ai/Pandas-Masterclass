@@ -112,8 +112,13 @@ This cheat sheet will guide through the basics of the Pandas library from the da
 |`df.shape` | It returns number of rows and columns.|
 |`df.info()`| It returns index, Datatype, and memory information.|
 |`df.index`| This attribute returns the index (row labels) of the DataFrame.|
+|`df.columns`| This attribute returns the column labels of the DataFrame.|
 |`df.dtypes`| This attribute returns the data types of each column in the DataFrame.|
 |`df.values`| This attribute returns the NumPy representation of the DataFrame.|
+|`df.describe()`| Generates descriptive statistics (count, mean, std, min, max, quartiles) for numerical columns.|
+|`df.describe(include='all')`| Generates descriptive statistics for all columns, including non-numerical data.|
+|`df.describe(include='object')`| Generates descriptive statistics for all non-numerical data.|
+|`df.unique()`| (For a Series) Returns unique values in a Series in the order of appearance.|
 |`df.nunique()`| This method returns the number of unique values in each column.|
 |`s.value_counts(dropna=False)`| It views unique values and counts.|
 |`df.apply(pd.Series.value_counts)`| It refers to the unique values and counts for all the columns.|
@@ -138,6 +143,13 @@ This cheat sheet will guide through the basics of the Pandas library from the da
 |`df.loc[:, col_label]`| Returns a column by its label.|
 |`df.at[row_label, col_label]`| Returns a single value at the specified row and column label, faster than df.loc[].|
 |`df.iat[row_index, col_index]`| Returns a single value at the specified row and column index, faster than df.iloc[].|
+|`df[df[col] > value]`| Returns rows where a column meets a specific condition (Boolean indexing).|
+|`df[(df[col1] > value1) & (df[col2] == value2)]`| Returns rows based on multiple conditions using logical operators (&).|
+|`df.query('col > value')`| Selects rows using a string expression for conditions (alternative to Boolean indexing).|
+|`df.isin(values)`| Returns a DataFrame of Booleans indicating if each element is contained in values. Often used with df[] for filtering.|
+|`df.filter(items=[], like='', regex='')`|Selects rows or columns based on specified item labels, partial string matches (like), or regular expressions (regex).|
+|`df.loc[df['col'].isin(list_of_values)]`| Selects rows where a column's value is present in a list of allowed values.|
+|`df.iloc[:, [0, 2, 5]]`| Selects columns by their integer positions (e.g., first, third, sixth columns).|
 
 **[🔼Back to Top](#table-of-contents)**
 
