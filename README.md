@@ -216,16 +216,35 @@ This cheat sheet will guide through the basics of the Pandas library from the da
 |-------------|----------|
 |`df[df[col] > 0.5]` | Returns the rows where column col is greater than 0.5|
 |`df[(df[col] > 0.5) & (df[col] < 0.7)]`| Returns the rows where 0.7 > col > 0.5|
+|`df[df[col].isin(['val1', 'val2'])]`| Returns rows where col contains any of the specified values.|
+|`df[df[col].notna()]`| Returns rows where col is not null/NaN.|
+|`df[df[col].isna()]`| Returns rows where col is null/NaN.|
+|`df.query('col > 0.5 and col < 0.7')`| Returns rows where 0.7 > col > 0.5 using a string expression.|
 |`df.sort_values(col1)` | It sorts the values by col1 in ascending order.|
 |`df.sort_values(col2,ascending=False)` | It sorts the values by col2 in descending order.|
 |`df.sort_values([col1,col2],ascending=[True,False])` | It sort the values by col1 in ascending order and col2 in descending order.|
 |`df.groupby(col1)`| Returns a groupby object for the values from one column.|
 |`df.groupby([col1,col2])`| Returns a groupby object for values from multiple columns.|
-|`df.groupby(col1)[col2])` | Returns mean of the values in col2, grouped by the values in col1.|
-|`df.pivot_table(index=col1,values=[col2,col3],aggfunc=mean)` | It creates the pivot table that groups by col1 and calculate mean of col2 and col3.|
+|`df.groupby(col1)[col2].mean()` | Returns the mean of the values in col2, grouped by the values in col1.|
 |`df.groupby(col1).agg(np.mean`) | It calculates the average across all the columns for every unique col1 group.|
+|`df.groupby(col1).agg({'col2': 'sum', 'col3': 'max'})`|Calculates sum of col2 and max of col3, grouped by col1.|
+|`df.groupby(col1).size()`|Returns the count of items in each group.|
+|`df.groupby(col1).count()`|Returns the count of non-null items in each column for every group.|
+|`df.groupby(col1).apply(custom_function)`|Applies a custom function to each group.|
+|`df.groupby(col1).filter(lambda x: len(x) > N)`|Filters groups based on a condition (e.g., keeping groups with more than N rows).|
+|`df.groupby(col1).filter(lambda x: x['col2'].mean() > X)`|Filters groups based on an aggregated condition within each group.|
+|`df.groupby(col1).transform(lambda x: x - x.mean())`|Applies a function to each group and returns a DataFrame with the same shape as the original.|
+|`df.groupby(col1).transform('mean')`|Fills values with the group's mean, aligning with the original DataFrame's index.|
+|`df.pivot(index=col1, columns=col2, values=col3)` | Restructures a DataFrame by moving values from rows to columns. Does not aggregate.|
+|`df.pivot_table(index=col1,values=[col2,col3],aggfunc=mean)` | It creates the pivot table that groups by col1 and calculate mean of col2 and col3.|
+|`df.pivot_table(index=col1, columns=col2, values=col3, aggfunc='sum')` | Creates a pivot table summing col3, with col1 as index and col2 as columns.|
+|`df.melt(id_vars=[col1], value_vars=[col2, col3], var_name='Metric', value_name='Value')` | "Unpivots" a DataFrame from wide to long format (inverse of pivot). unpivot is not a direct Pandas command; melt is used.|
+|`df.stack()` | "Stacks" the (innermost) column level into the (innermost) row level, producing a Series.|
+|`df.unstack()` | "Unstacks" the (innermost) row level into the (innermost) column level.|
+|`df.T`|Transposes the DataFrame (swaps rows and columns).|
 |`df.apply(np.mean)` | Its task is to apply the function np.mean() across each column.|
 |`nf.apply(np.max,axis=1)`|Its task is to apply the function np.max() across each row.|
+|`df.transform(func)`|Performs group-wise transformation where the result is broadcast to the original shape.|
 
 **[🔼Back to Top](#table-of-contents)**
 
