@@ -253,8 +253,12 @@ This cheat sheet will guide through the basics of the Pandas library from the da
 |Command | description|
 |-------------|----------|
 |`df1.append(df2)`| Its task is to add the rows in df1 to the end of df2(columns should be identical).|
-|`pd.concat([df1, df2], axis=1)`| Its task is to add the columns in df1 to the end of df2(rows should be identical).|
-|`df1.join(df2,on=col1,how='inner')`| SQL-style join the columns in df1 with the columns on df2 where the rows for col have identical values, 'how' can be of 'left', 'right', 'outer', 'inner'.|
+|`pd.concat([df1, df2])`| Concatenates (stacks) DataFrames or Series along a particular axis (default is axis=0, meaning rows). It can add rows from df2 to the end of df1. Use axis=1 to add columns from df2 to df1. Handles non-matching indices based on join parameter ('outer' by default, 'inner' also available).|
+|`pd.merge(df1, df2, on='key', how='inner')`| Combines DataFrames based on common values in specified columns or indices (keys). This is the most versatile and commonly used method for SQL-style joins. on specifies the column(s) to join on. how specifies the type of join ('inner', 'left', 'right', 'outer', 'cross').|
+|`pd.merge(df1, df2, left_on='key_df1', right_on='key_df2')`| Combines DataFrames when the join keys have different names in df1 and df2.|
+|`pd.merge(df1, df2, left_index=True, right_index=True)`| Combines DataFrames based on their indices. Use left_index=True and right_index=True when the index is the join key. Can be combined with left_on/right_on if one is an index and the other is a column.|
+|`df1.join(df2, on='key', how='left')`| Combines DataFrames based on the index of the calling DataFrame (df1) and a specified column (or index) in the other DataFrame (df2). By default, it performs a left join (how='left'). Similar to pd.merge but optimized for joining on an index.|
+|`df1.combine(df2, func)`| Combines two DataFrames by applying a function func to each element of the DataFrames. Elements are combined pairwise. Missing values can be handled.|
 
 **[🔼Back to Top](#table-of-contents)**
 
