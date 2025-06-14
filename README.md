@@ -331,7 +331,7 @@ This cheat sheet will guide through the basics of the Pandas library from the da
 
 |Command | description|
 |-------------|----------|
-|`df['column_name'].astype('category'`| Converts the data in the specified column to a pandas Categorical dtype, which is memory-efficient and enables categorical-specific methods.|
+|`df['column_name'].astype('category')`| Converts the data in the specified column to a pandas Categorical dtype, which is memory-efficient and enables categorical-specific methods.|
 |`df['column_name'].value_counts()`| Counts the occurrences of each unique category in the specified column, returning a Series with categories as index and counts as values.|
 |`df['column_name'].unique()`| Returns an array of all unique categories/values present in the specified column.|
 |`df['column_name'].nunique()`| Returns the number of unique categories/values in the specified column.|
