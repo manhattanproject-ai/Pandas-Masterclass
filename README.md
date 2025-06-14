@@ -320,8 +320,16 @@ This cheat sheet will guide through the basics of the Pandas library from the da
 |`df['column_name'].clip(upper=20000)` | It caps the maximum value of elements in the column column_name within the DataFrame df to 20,000.|
 |`df['column_name'].cumsum()` | It calculates the cumulative sum of the values in the column column_name within the DataFrame df.|
 |`df['column_name'].cumprod()` | It calculates the cumulative product of the values in the column column_name within the DataFrame df.|
-|`df.groupby(['column_name'])['column_name'].cummax()` | It calculates the cumulative maximum value within each group defined by column_name in the DataFrame df.|
-|`df.groupby(['column_name'])['column_name'].cummin()` | It calculates the cumulative minimum value within each group defined by column_name in the DataFrame df.|
+|`df.apply(lambda x: x.sum(), axis=0)` |  Applies a custom lambda function (here, sum) to each column of the DataFrame.|
+|`df.apply(lambda x: x.mean(), axis=1)` | Applies a custom lambda function (here, mean) to each row of the DataFrame.|
+|`df.apply(lambda x: pd.Series([x.min(), x.max()], index=['Min', 'Max']), axis=0, result_type='expand')` | Applies a custom lambda function to each column, returning a Series that expands into new columns in the resulting DataFrame.|
+|`df.apply(lambda x: x / x.mean(), axis=0, result_type='broadcast')` | Applies a custom lambda function to each column, returning a DataFrame with the same shape as the original, broadcasting the result.|
+|`df.apply(lambda x: x.sum() / x.count(), axis=0, result_type='reduce')` | Applies a custom lambda function to each column, returning a Series by reducing the result (this is the default behavior if not specified).|
+|`df_scores.applymap(lambda x: x * 100 if pd.notna(x) else x)` | Applies a custom lambda function element-wise to every cell in the DataFrame.|
+|`df_sales['Unit_Price_USD'].map(lambda x: x * 1.07 if pd.notna(x) else x)` | Applies a custom lambda function element-wise to each value in the specified Series (column).|
+|`df['Sales_K_USD'] = df['Sales_Revenue'].apply(lambda x: x / 1000 if pd.notna(x) else x)` | Defines an anonymous inline function that is used here with .apply() to convert sales figures.|
+|`df_performance['Profit_Category'] = df_performance['Profit_Margin_Pct'].apply(lambda x: 'High' if x > 0.15 else 'Low')` | Defines an anonymous inline function used with .apply() for conditional categorization based on a numerical value.|
+
 
 **[🔼Back to Top](#table-of-contents)**
 
