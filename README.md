@@ -259,6 +259,9 @@ This cheat sheet will guide through the basics of the Pandas library from the da
 |`pd.merge(df1, df2, left_index=True, right_index=True)`| Combines DataFrames based on their indices. Use left_index=True and right_index=True when the index is the join key. Can be combined with left_on/right_on if one is an index and the other is a column.|
 |`df1.join(df2, on='key', how='left')`| Combines DataFrames based on the index of the calling DataFrame (df1) and a specified column (or index) in the other DataFrame (df2). By default, it performs a left join (how='left'). Similar to pd.merge but optimized for joining on an index.|
 |`df1.combine(df2, func)`| Combines two DataFrames by applying a function func to each element of the DataFrames. Elements are combined pairwise. Missing values can be handled.|
+|`df1.combine(df2, func, fill_value=X)`| Before applying func, any NaN values in df1 or df2 are replaced with X. This allows func to operate on actual numerical (or other) values instead of NaNs.|
+|`df1.combine(df2, func, overwrite=False)`| By default (overwrite=True), if the func returns a NaN for a pair where df1 had a non-NaN value, df1's value would be overwritten with NaN. Setting overwrite=False prevents NaNs in the result from func from overwriting existing non-NaN values in df1.|
+|`df1.combine(df2, func, fill_value=X, overwrite=False)`| Combines both fill_value and overwrite parameters, first replacing NaNs in inputs with X before applying func, and then ensuring NaN results from func do not overwrite existing non-NaN values from df1.|
 |`df1.combine_first(other)`| Combines two DataFrames by filling NaN values in df1 with corresponding non-NaN values from other, prioritizing df1's values where they exist.|
 |`df1.update(other)`| Modifies df1 in place by updating its values with non-NaN values from other, aligning based on index and column labels.|
 
